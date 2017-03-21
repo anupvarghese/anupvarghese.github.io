@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Things I like to Share</title>
-  <meta name="description" content="Things I do &amp; Things I like to Share">
+  <title>Getting started with Kubernetes on ACS</title>
+  <meta name="description" content="Azure Container Services(ACS) is the new container solution from Azure. Also, it supports Kubernetes. I was trying to start a Kubernetes cluster on ACS, here...">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://0.0.0.0:4004/">
+  <link rel="canonical" href="http://0.0.0.0:4004/kubernetes/azure/acs/2017/03/18/kubernetes-and-acs.html">
   <link rel="alternate" type="application/rss+xml" title="Things I like to Share" href="/feed.xml">
 
   
@@ -55,36 +55,52 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
-  
-  
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Getting started with Kubernetes on ACS</h1>
+    <p class="post-meta"><time datetime="2017-03-18T14:29:59+00:00" itemprop="datePublished">Mar 18, 2017</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">anupvarghese</span></span></p>
+  </header>
 
+  <div class="post-content" itemprop="articleBody">
+    <p>Azure Container Services(ACS) is the new container solution from Azure. Also, it supports Kubernetes. I was trying to start a Kubernetes cluster on ACS, here are the steps I took to get it up and running.</p>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Mar 20, 2017</span>
+<p><strong><em>Get ACS Engine &amp; Prepate docker container</em></strong></p>
 
-        <h2>
-          <a class="post-link" href="/jekyll/docker/2017/03/20/run-from-docker.html">Run Jekyll from Docker!</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 18, 2017</span>
+<p>Clone the ACS engine from <a href="https://github.com/Azure/acs-engine">here</a></p>
 
-        <h2>
-          <a class="post-link" href="/kubernetes/azure/acs/2017/03/18/kubernetes-and-acs.html">Getting started with Kubernetes on ACS</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>Run <code class="highlighter-rouge">./scripts/devenv.sh</code> from the cloned path</p>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-
+<p>By running the above script, our Docker container would be ready &amp; we can <code class="highlighter-rouge">bash</code> into it by</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>docker run -it --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /path/to/repo/acs-engine:/gopath/src/github.com/Azure/acs-engine -w /gopath/src/github.com/Azure/acs-engine acs-engine /bin/bash
+</code></pre>
 </div>
+<p><em>You can also run it locally but I choose Docker for keeping the packages out of my local environment</em></p>
+
+<p><strong><em>Create Kubernetes Cluster</em></strong></p>
+
+<p>We are now ready to <code class="highlighter-rouge">az login</code> with Azure credentials to fire some Azure CLI commands</p>
+
+<p>Create a resource group to manage the over all process</p>
+
+<p><code class="highlighter-rouge">az group create -n my-cluster -l "eastus"</code></p>
+
+<p>We are now ready to create the Kubernetes cluster</p>
+
+<p><code class="highlighter-rouge">az acs create -n mb-cluster -g my-cluster --dns-prefix my-cluster --orchestrator-type kubernetes</code></p>
+
+<p>If everything runs properly, we will get <code class="highlighter-rouge">my-cluster</code> up and running</p>
+
+<p><strong><em>Warning</em></strong></p>
+
+<p>This process creates Azure D Series servers for master &amp; nodes and it may be expensive. If you would like to try this process and then be sure to remove the resource to remove all the servers after the trial.</p>
+
+<p><code class="highlighter-rouge">az resource delete -n my-cluster</code> will remove the resource and cluster properly</p>
+
+  </div>
+
+  
+</article>
 
       </div>
     </main>

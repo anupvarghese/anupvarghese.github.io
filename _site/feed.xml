@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.1">Jekyll</generator><link href="http://0.0.0.0:4004/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4004/" rel="alternate" type="text/html" /><updated>2017-03-21T10:53:50+00:00</updated><id>http://0.0.0.0:4004/</id><title type="html">Things I like to Share</title><subtitle>Things I do &amp; Things I like to Share
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.1">Jekyll</generator><link href="http://0.0.0.0:4004/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4004/" rel="alternate" type="text/html" /><updated>2017-03-21T11:38:17+00:00</updated><id>http://0.0.0.0:4004/</id><title type="html">Things I like to Share</title><subtitle>Things I do &amp; Things I like to Share
 </subtitle><author><name>anupvarghese</name></author><entry><title type="html">Run Jekyll from Docker!</title><link href="http://0.0.0.0:4004/jekyll/docker/2017/03/20/run-from-docker.html" rel="alternate" type="text/html" title="Run Jekyll from Docker!" /><published>2017-03-20T13:29:59+00:00</published><updated>2017-03-20T13:29:59+00:00</updated><id>http://0.0.0.0:4004/jekyll/docker/2017/03/20/run-from-docker</id><content type="html" xml:base="http://0.0.0.0:4004/jekyll/docker/2017/03/20/run-from-docker.html">&lt;p&gt;You are in this page because you like Docker. I like docker because it’s an easy solution to keep everything in a container and not to make your local environment messy. So, I was wondering how to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll&lt;/code&gt; from docker. After spending some time on the jekyll build process I was able to do it properly. Here is the &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-compose.yml&lt;/code&gt; to do the magic&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;s&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;2'&lt;/span&gt;
@@ -20,4 +20,36 @@
 
 &lt;p&gt;Then run &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-compose up jekyll&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Go to &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:4004&lt;/code&gt; to see the static site&lt;/p&gt;</content><author><name>anupvarghese</name></author><summary type="html">You are in this page because you like Docker. I like docker because it’s an easy solution to keep everything in a container and not to make your local environment messy. So, I was wondering how to run jekyll from docker. After spending some time on the jekyll build process I was able to do it properly. Here is the docker-compose.yml to do the magic</summary></entry></feed>
+&lt;p&gt;Go to &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:4004&lt;/code&gt; to see the static site&lt;/p&gt;</content><author><name>anupvarghese</name></author><summary type="html">You are in this page because you like Docker. I like docker because it’s an easy solution to keep everything in a container and not to make your local environment messy. So, I was wondering how to run jekyll from docker. After spending some time on the jekyll build process I was able to do it properly. Here is the docker-compose.yml to do the magic</summary></entry><entry><title type="html">Getting started with Kubernetes on ACS</title><link href="http://0.0.0.0:4004/kubernetes/azure/acs/2017/03/18/kubernetes-and-acs.html" rel="alternate" type="text/html" title="Getting started with Kubernetes on ACS" /><published>2017-03-18T14:29:59+00:00</published><updated>2017-03-18T14:29:59+00:00</updated><id>http://0.0.0.0:4004/kubernetes/azure/acs/2017/03/18/kubernetes-and-acs</id><content type="html" xml:base="http://0.0.0.0:4004/kubernetes/azure/acs/2017/03/18/kubernetes-and-acs.html">&lt;p&gt;Azure Container Services(ACS) is the new container solution from Azure. Also, it supports Kubernetes. I was trying to start a Kubernetes cluster on ACS, here are the steps I took to get it up and running.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Get ACS Engine &amp;amp; Prepate docker container&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Clone the ACS engine from &lt;a href=&quot;https://github.com/Azure/acs-engine&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Run &lt;code class=&quot;highlighter-rouge&quot;&gt;./scripts/devenv.sh&lt;/code&gt; from the cloned path&lt;/p&gt;
+
+&lt;p&gt;By running the above script, our Docker container would be ready &amp;amp; we can &lt;code class=&quot;highlighter-rouge&quot;&gt;bash&lt;/code&gt; into it by&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run -it --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /path/to/repo/acs-engine:/gopath/src/github.com/Azure/acs-engine -w /gopath/src/github.com/Azure/acs-engine acs-engine /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;You can also run it locally but I choose Docker for keeping the packages out of my local environment&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Create Kubernetes Cluster&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We are now ready to &lt;code class=&quot;highlighter-rouge&quot;&gt;az login&lt;/code&gt; with Azure credentials to fire some Azure CLI commands&lt;/p&gt;
+
+&lt;p&gt;Create a resource group to manage the over all process&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;az group create -n my-cluster -l &quot;eastus&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;We are now ready to create the Kubernetes cluster&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;az acs create -n mb-cluster -g my-cluster --dns-prefix my-cluster --orchestrator-type kubernetes&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If everything runs properly, we will get &lt;code class=&quot;highlighter-rouge&quot;&gt;my-cluster&lt;/code&gt; up and running&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Warning&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This process creates Azure D Series servers for master &amp;amp; nodes and it may be expensive. If you would like to try this process and then be sure to remove the resource to remove all the servers after the trial.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;az resource delete -n my-cluster&lt;/code&gt; will remove the resource and cluster properly&lt;/p&gt;</content><author><name>anupvarghese</name></author><summary type="html">Azure Container Services(ACS) is the new container solution from Azure. Also, it supports Kubernetes. I was trying to start a Kubernetes cluster on ACS, here are the steps I took to get it up and running.</summary></entry></feed>

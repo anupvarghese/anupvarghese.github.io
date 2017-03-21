@@ -17,7 +17,7 @@ services:
     ports:
       - 4004:4004
     volumes:
-      - ./site_name:/srv/jekyll
+      - .:/srv/jekyll
 {% endhighlight %}
 
 Pretty simple right?

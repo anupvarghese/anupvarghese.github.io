@@ -1,0 +1,18 @@
+title: Things I like to Share
+email: anupvarghese@gmail.com
+description: >
+  Things I do & Things I like to Share
+baseurl: ""
+url: ""
+author: anupvarghese
+twitter_username: anupvarghese
+github_username:  anupvarghese
+
+# Build settings
+markdown: kramdown
+theme: minima
+gems:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock

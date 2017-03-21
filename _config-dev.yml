@@ -1,3 +1,4 @@
 # Build settings
 # Override Google Analytics Key, Disqus key etc here for dev
 
+google_analytics: #UA-72042804-1

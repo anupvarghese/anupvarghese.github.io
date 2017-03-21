@@ -17,14 +17,14 @@ services:
     ports:
       - 4004:4004
     volumes:
-      - ./site_name:/srv/jekyll
+      - .:/srv/jekyll
 {% endhighlight %}
 
 Pretty simple right?
 
 If you like to initialize a new site, just run the below command
 
-`docker-compose run jekyll jekyll site_name`
+`docker-compose run jekyll jekyll .`
 
 Then run `docker-compose up jekyll`
 

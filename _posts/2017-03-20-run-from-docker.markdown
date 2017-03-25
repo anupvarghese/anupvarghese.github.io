@@ -24,7 +24,7 @@ Pretty simple right?
 
 If you like to initialize a new site, just run the below command
 
-`docker-compose run jekyll jekyll site_name`
+`docker-compose run jekyll jekyll . --force`
 
 Then run `docker-compose up jekyll`
 

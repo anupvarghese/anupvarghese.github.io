@@ -28,6 +28,8 @@ If you like to initialize a new site, just run the below command
 
 Then run `docker-compose up jekyll`
 
-Go to `http://localhost:4004` to see the static site
+
+
+Go to `http://localhost:4004` to see the static site :rocket:
 
 

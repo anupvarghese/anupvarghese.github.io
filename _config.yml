@@ -18,6 +18,7 @@ gems:
   - jekyll-seo-tag
   - jekyll-feed
   - jekyll-sitemap
+  - jemoji
 exclude:
   - Gemfile
   - Gemfile.lock

@@ -2,8 +2,8 @@
 layout: post
 title:  "Getting started with Kubernetes on ACS"
 date:   2017-03-18 14:29:59 +0000
-categories: kubernetes azure acs
 author: anupvarghese
+comments: false
 ---
 Azure Container Services(ACS) is the new container solution from Azure. Also, it supports Kubernetes. I was trying to start a Kubernetes cluster on ACS, here are the steps I took to get it up and running.
 

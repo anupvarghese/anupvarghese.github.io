@@ -3,7 +3,7 @@ email: anupvarghese@gmail.com
 description: >
   Things I do & Things I like to Share
 baseurl: ""
-url: ""
+url: "https://anupvarghese.github.io"
 author: anupvarghese
 twitter_username: anupvarghese
 github_username:  anupvarghese
@@ -12,6 +12,7 @@ disqus:
   shortname: anupvarghese
 # Build settings
 markdown: kramdown
+
 theme: minima
 gems:
   - jekyll-seo-tag

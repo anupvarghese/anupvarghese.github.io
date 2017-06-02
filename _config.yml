@@ -12,9 +12,10 @@ google_analytics: UA-72042804-1
 # Build settings
 markdown: kramdown
 theme: minima
+permalink: pretty
 gems:
-  - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-feed
 exclude:
   - Gemfile
   - Gemfile.lock

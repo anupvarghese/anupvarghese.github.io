@@ -7,11 +7,11 @@ comments: false
 ---
 Azure Container Services(ACS) is the new container solution from Azure. Also, it supports Kubernetes. I was trying to start a Kubernetes cluster on ACS, here are the steps I took to get it up and running.
 
-***Get ACS Engine & Prepate docker container***
+***Get ACS Engine & Prepare docker container***
 
 Clone the ACS engine from [here](https://github.com/Azure/acs-engine)
 
-Run `./scripts/devenv.sh` from the cloned path
+Run `./scripts/devenv.sh` from the clone path
 
 By running the above script, our Docker container would be ready & we can `bash` into it by
  ```shell
@@ -23,7 +23,7 @@ _You can also run it locally but I choose Docker for keeping the packages out of
 
 We are now ready to `az login` with Azure credentials to fire some Azure CLI commands
 
-Create a resource group to manage the over all process
+Create a resource group to manage the overall process
 
 `az group create -n my-cluster -l "eastus"`
 
@@ -31,7 +31,7 @@ We are now ready to create the Kubernetes cluster
 
 `az acs create -n mb-cluster -g my-cluster --dns-prefix my-cluster --orchestrator-type kubernetes`
 
-If everything runs properly, we will get `my-cluster` up and running
+If everything runs properly, we will get `my-cluster` up and be running
 
 ***Warning***
 

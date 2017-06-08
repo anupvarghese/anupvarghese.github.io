@@ -8,7 +8,7 @@ comments: true
 
 Express has simple and extended query parsers. `simple` is based on Node's [queryparser](https://www.npmjs.com/package/querystring) and `extended` is based on [qs](https://www.npmjs.com/package/qs)
 
-However if we need to override the default options of `qs`, we could do as below,
+However, if we need to override the default options of `qs`, we could do as below,
 
 ```javascript
 const express = require('express');

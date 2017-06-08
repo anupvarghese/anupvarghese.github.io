@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Express extended query parser"
-date:   2017-05-08 20:06:59 +0000
+date:   2017-06-08 20:06:59 +0000
 author: anupvarghese
 comments: true
 ---
